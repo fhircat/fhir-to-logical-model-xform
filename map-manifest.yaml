@@ -1,0 +1,13 @@
+---
+
+- schemaLabel: MolecularDefinition CLOSED
+  schemaURL: MolecularDefinition.shex
+  dataLabel: moldef allelesliced1
+  dataURL: moleculardefinition-example-allelesliced1.ttl
+  queryMap: "{FOCUS fhir:nodeRole fhir:treeRoot}@<#MolecularDefinition>"
+  outputSchemaURL: drug-metabolizer-ob.shex
+  outputShape: "<#XXXObservation>"
+  staticVars: {"http://prov.example/x#orig": "../MolecularDefinition/example-allelesliced1"}
+  createRoot: <obs1>
+  status: conformant
+

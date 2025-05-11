@@ -1,0 +1,34 @@
+PREFIX fhir: <http://hl7.org/fhir/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://loinc.org/rdf/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX Map: <http://shex.io/extensions/Map/#>
+PREFIX bp: <http://shex.io/extensions/Map/#BPDAM->
+PREFIX metab: <http://a.example/->
+PREFIX prov: <http://prov.example/x#->
+
+start=<#XXXObservation>
+
+<#XXXObservation> CLOSED {
+  a [fhir:MolecularDefinition] ;
+  fhir:nodeRole [fhir:treeRoot] ;
+/*
+  fhir:extension {
+    fhir:url ["http://a.example/extesions#origResource"^^xsd:anyURI] ;
+    fhir:value { fhir:v xsd:string %Map:{ prov:orig %} }
+  } ;
+*/
+  fhir:id { fhir:v xsd:string } ? ;
+  fhir:code { fhir:coding @<#One_MediumMetabolizerOfXXX> } ;
+}
+
+<#One_MediumMetabolizerOfXXX> CLOSED {
+  rdf:first @<#MediumMetabolizerOfXXX> ;
+  rdf:rest [rdf:nil]
+}
+
+<#MediumMetabolizerOfXXX> CLOSED {
+  fhir:system { fhir:v xsd:anyURI %Map:{ metab:locCoordSystemSystem %} } ;
+  fhir:code { fhir:v xsd:string %Map:{ metab:locCoordSystemCode %} } ;
+  fhir:display { fhir:v xsd:string %Map:{ metab:locCoordSystemDisp %} }
+}
