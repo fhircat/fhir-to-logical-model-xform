@@ -1,0 +1,1382 @@
+{
+  "@context": {
+    "ex": "http://example.org/vocab#",
+    "name": "ex:name",
+    "schema": {
+      "@id": "ex:schema",
+      "@context": "http://www.w3.org/ns/shex.jsonld"
+    }
+  },
+  "@id": "http://example.org/S",
+  "@graph": [
+    {
+      "@id": "http://emr1.example.org/fhirR4-graph",
+      "@graph": [
+        {
+          "@id": "http://emr1.example.org/fhirR4-endpoint",
+          "schema": {
+            "type": "Schema",
+            "shapes": [
+              {
+                "type": "ShapeDecl",
+                "id": "http://cds.example.org/Skibbidy1-Rule",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "values": [
+                            "http://cds.example.org/Rule"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://cds.example.org/when",
+                        "valueExpr": {
+                          "type": "ShapeAnd",
+                          "shapeExprs": [
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#MolecularDefinition",
+                            {
+                              "type": "Shape",
+                              "expression": {
+                                "type": "EachOf",
+                                "expressions": [
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/moleculeType",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "expression": {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/coding",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "expression": {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                                            "valueExpr": {
+                                              "type": "Shape",
+                                              "expression": {
+                                                "type": "TripleConstraint",
+                                                "predicate": "http://hl7.org/fhir/code",
+                                                "valueExpr": {
+                                                  "type": "Shape",
+                                                  "expression": {
+                                                    "type": "TripleConstraint",
+                                                    "predicate": "http://hl7.org/fhir/v",
+                                                    "valueExpr": {
+                                                      "type": "NodeConstraint",
+                                                      "values": [
+                                                        {
+                                                          "value": "dna"
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/location",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "expression": {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "expression": {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/sequenceLocation",
+                                            "valueExpr": {
+                                              "type": "Shape",
+                                              "expression": {
+                                                "type": "TripleConstraint",
+                                                "predicate": "http://hl7.org/fhir/coordinateInterval",
+                                                "valueExpr": {
+                                                  "type": "Shape",
+                                                  "expression": {
+                                                    "type": "EachOf",
+                                                    "expressions": [
+                                                      {
+                                                        "type": "TripleConstraint",
+                                                        "predicate": "http://hl7.org/fhir/start",
+                                                        "valueExpr": {
+                                                          "type": "Shape",
+                                                          "expression": {
+                                                            "type": "TripleConstraint",
+                                                            "predicate": "http://hl7.org/fhir/value",
+                                                            "valueExpr": {
+                                                              "type": "Shape",
+                                                              "expression": {
+                                                                "type": "TripleConstraint",
+                                                                "predicate": "http://hl7.org/fhir/v",
+                                                                "valueExpr": {
+                                                                  "type": "NodeConstraint",
+                                                                  "maxinclusive": 8001
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "TripleConstraint",
+                                                        "predicate": "http://hl7.org/fhir/end",
+                                                        "valueExpr": {
+                                                          "type": "Shape",
+                                                          "expression": {
+                                                            "type": "TripleConstraint",
+                                                            "predicate": "http://hl7.org/fhir/value",
+                                                            "valueExpr": {
+                                                              "type": "Shape",
+                                                              "expression": {
+                                                                "type": "TripleConstraint",
+                                                                "predicate": "http://hl7.org/fhir/v",
+                                                                "valueExpr": {
+                                                                  "type": "NodeConstraint",
+                                                                  "mininclusive": 8005
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://cds.example.org/do",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/cdsAction"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/cdsAction",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "expression": {
+                    "type": "OneOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://cds.example.org/order",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://cds.example.org/print",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#MolecularDefinition",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "values": [
+                            "http://hl7.org/fhir/MolecularDefinition"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/nodeRole",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "values": [
+                            "http://hl7.org/fhir/treeRoot"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/id",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/moleculeType",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/coding",
+                            "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_MolecularTypeCoding"
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/location",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_Location"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/representation",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_Representation"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_MolecularTypeCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#MolecularTypeCoding"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_MolecularTypeCoding"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#MolecularTypeCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/system",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/code",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/display",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_Location",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#Location"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_Location"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#Location",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "TripleConstraint",
+                    "predicate": "http://hl7.org/fhir/sequenceLocation",
+                    "valueExpr": {
+                      "type": "Shape",
+                      "closed": true,
+                      "expression": {
+                        "type": "EachOf",
+                        "expressions": [
+                          {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/sequenceContext",
+                            "valueExpr": {
+                              "type": "Shape",
+                              "closed": true,
+                              "expression": {
+                                "type": "EachOf",
+                                "expressions": [
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/link",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "nodeKind": "iri"
+                                    }
+                                  },
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/reference",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "expression": {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/v",
+                                        "valueExpr": {
+                                          "type": "NodeConstraint",
+                                          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/type",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "expression": {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/v",
+                                        "valueExpr": {
+                                          "type": "NodeConstraint",
+                                          "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/display",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "expression": {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/v",
+                                        "valueExpr": {
+                                          "type": "NodeConstraint",
+                                          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/coordinateInterval",
+                            "valueExpr": {
+                              "type": "Shape",
+                              "closed": true,
+                              "expression": {
+                                "type": "EachOf",
+                                "expressions": [
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/coordinateSystem",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "closed": true,
+                                      "expression": {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/system",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "closed": true,
+                                          "expression": {
+                                            "type": "EachOf",
+                                            "expressions": [
+                                              {
+                                                "type": "TripleConstraint",
+                                                "predicate": "http://hl7.org/fhir/coding",
+                                                "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_LocationIntervalCoordinateSystemCoding"
+                                              },
+                                              {
+                                                "type": "TripleConstraint",
+                                                "predicate": "http://hl7.org/fhir/text",
+                                                "valueExpr": {
+                                                  "type": "Shape",
+                                                  "expression": {
+                                                    "type": "TripleConstraint",
+                                                    "predicate": "http://hl7.org/fhir/v",
+                                                    "valueExpr": {
+                                                      "type": "NodeConstraint",
+                                                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/start",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "closed": true,
+                                      "expression": {
+                                        "type": "EachOf",
+                                        "expressions": [
+                                          {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                                            "valueExpr": {
+                                              "type": "NodeConstraint",
+                                              "values": [
+                                                "http://hl7.org/fhir/Quantity"
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/value",
+                                            "valueExpr": {
+                                              "type": "Shape",
+                                              "expression": {
+                                                "type": "TripleConstraint",
+                                                "predicate": "http://hl7.org/fhir/v",
+                                                "valueExpr": {
+                                                  "type": "NodeConstraint",
+                                                  "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/end",
+                                    "valueExpr": {
+                                      "type": "Shape",
+                                      "closed": true,
+                                      "expression": {
+                                        "type": "EachOf",
+                                        "expressions": [
+                                          {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                                            "valueExpr": {
+                                              "type": "NodeConstraint",
+                                              "values": [
+                                                "http://hl7.org/fhir/Quantity"
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/value",
+                                            "valueExpr": {
+                                              "type": "Shape",
+                                              "expression": {
+                                                "type": "TripleConstraint",
+                                                "predicate": "http://hl7.org/fhir/v",
+                                                "valueExpr": {
+                                                  "type": "NodeConstraint",
+                                                  "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_LocationIntervalCoordinateSystemCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#LocationIntervalCoordinateSystemCoding"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_LocationIntervalCoordinateSystemCoding"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#LocationIntervalCoordinateSystemCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "values": [
+                            {
+                              "type": "IriStem",
+                              "stem": "https://loinc.org/rdf/"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/system",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                            },
+                            "semActs": [
+                              {
+                                "type": "SemAct",
+                                "name": "http://shex.io/extensions/Map/#",
+                                "code": " metab:locCoordSystemSystem "
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/code",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            },
+                            "semActs": [
+                              {
+                                "type": "SemAct",
+                                "name": "http://shex.io/extensions/Map/#",
+                                "code": " metab:locCoordSystemCode "
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/display",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            },
+                            "semActs": [
+                              {
+                                "type": "SemAct",
+                                "name": "http://shex.io/extensions/Map/#",
+                                "code": " metab:locCoordSystemDisp "
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_Representation",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#Representation"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_Representation"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#Representation",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/focus",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "closed": true,
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/coding",
+                            "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RepresentationFocusCoding"
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/resolvable",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "closed": true,
+                          "expression": {
+                            "type": "EachOf",
+                            "expressions": [
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/link",
+                                "valueExpr": {
+                                  "type": "NodeConstraint",
+                                  "nodeKind": "iri"
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/reference",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "min": 0,
+                        "max": 1
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/relative",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "closed": true,
+                          "expression": {
+                            "type": "EachOf",
+                            "expressions": [
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/startingMolecule",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "closed": true,
+                                  "expression": {
+                                    "type": "EachOf",
+                                    "expressions": [
+                                      {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/link",
+                                        "valueExpr": {
+                                          "type": "NodeConstraint",
+                                          "nodeKind": "iri"
+                                        }
+                                      },
+                                      {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/reference",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "expression": {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/v",
+                                            "valueExpr": {
+                                              "type": "NodeConstraint",
+                                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/type",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "expression": {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/v",
+                                            "valueExpr": {
+                                              "type": "NodeConstraint",
+                                              "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/display",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "expression": {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/v",
+                                            "valueExpr": {
+                                              "type": "NodeConstraint",
+                                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/edit",
+                                "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RelativeEdit"
+                              }
+                            ]
+                          }
+                        },
+                        "min": 0,
+                        "max": 1
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RepresentationFocusCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#RepresentationFocusCoding"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RepresentationFocusCoding"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#RepresentationFocusCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/code",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/display",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RelativeEdit",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#RelativeEdit"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RelativeEdit"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#RelativeEdit",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/coordinateInterval",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "closed": true,
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/coordinateSystem",
+                            "valueExpr": {
+                              "type": "Shape",
+                              "closed": true,
+                              "expression": {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/system",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "closed": true,
+                                  "expression": {
+                                    "type": "EachOf",
+                                    "expressions": [
+                                      {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/coding",
+                                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RelativeEditIntervalCoordinateSystemCoding"
+                                      },
+                                      {
+                                        "type": "TripleConstraint",
+                                        "predicate": "http://hl7.org/fhir/text",
+                                        "valueExpr": {
+                                          "type": "Shape",
+                                          "expression": {
+                                            "type": "TripleConstraint",
+                                            "predicate": "http://hl7.org/fhir/v",
+                                            "valueExpr": {
+                                              "type": "NodeConstraint",
+                                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/replacementMolecule",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "closed": true,
+                          "expression": {
+                            "type": "EachOf",
+                            "expressions": [
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/link",
+                                "valueExpr": {
+                                  "type": "NodeConstraint",
+                                  "nodeKind": "iri"
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/reference",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/type",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/display",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/replacedMolecule",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "closed": true,
+                          "expression": {
+                            "type": "EachOf",
+                            "expressions": [
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/link",
+                                "valueExpr": {
+                                  "type": "NodeConstraint",
+                                  "nodeKind": "iri"
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/reference",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/type",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "type": "TripleConstraint",
+                                "predicate": "http://hl7.org/fhir/display",
+                                "valueExpr": {
+                                  "type": "Shape",
+                                  "expression": {
+                                    "type": "TripleConstraint",
+                                    "predicate": "http://hl7.org/fhir/v",
+                                    "valueExpr": {
+                                      "type": "NodeConstraint",
+                                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RelativeEditIntervalCoordinateSystemCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+                        "valueExpr": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#RelativeEditIntervalCoordinateSystemCoding"
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+                        "valueExpr": {
+                          "type": "ShapeOr",
+                          "shapeExprs": [
+                            {
+                              "type": "NodeConstraint",
+                              "values": [
+                                "http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"
+                              ]
+                            },
+                            "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#OneOrMore_RelativeEditIntervalCoordinateSystemCoding"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "https://raw.githubusercontent.com/fhircat/fhir-to-logical-model-xform/refs/heads/main/MolecularDefinition+cds-Skibbidy1.shex#RelativeEditIntervalCoordinateSystemCoding",
+                "shapeExpr": {
+                  "type": "Shape",
+                  "closed": true,
+                  "expression": {
+                    "type": "EachOf",
+                    "expressions": [
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                          "type": "NodeConstraint",
+                          "values": [
+                            {
+                              "type": "IriStem",
+                              "stem": "https://loinc.org/rdf/"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/system",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#anyURI"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/code",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "TripleConstraint",
+                        "predicate": "http://hl7.org/fhir/display",
+                        "valueExpr": {
+                          "type": "Shape",
+                          "expression": {
+                            "type": "TripleConstraint",
+                            "predicate": "http://hl7.org/fhir/v",
+                            "valueExpr": {
+                              "type": "NodeConstraint",
+                              "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "@id": "http://decoy.example.org/misc-other-triple",
+                "@type": "ex:decoy",
+                "name": "decoy triple test",
+                "ex:author": "ericP"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@id": "http://trials.example.org/cohort-7",
+      "@graph": [
+        {
+          "@id": "http://emr2.example.org/cohort-endpoint",
+          "schema": {
+            "type": "Schema",
+            "shapes": [
+              {
+                "type": "ShapeDecl",
+                "id": "http://cds.example.org/Monitoring2-Rule",
+                "shapeExpr": {
+                  "type": "Shape"
+                }
+              },
+              {
+                "type": "ShapeDecl",
+                "id": "http://cds.example.org/Monitoring2-Rule",
+                "shapeExpr": {
+                  "type": "Shape"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
