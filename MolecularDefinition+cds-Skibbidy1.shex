@@ -1,0 +1,164 @@
+PREFIX cds: <http://cds.example.org/>
+PREFIX fhir: <http://hl7.org/fhir/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://loinc.org/rdf/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX Map: <http://shex.io/extensions/Map/#>
+PREFIX metab: <http://a.example/->
+
+cds:Skibbidy1-Rule {
+  a [cds:Rule] ;
+  cds:when @<#MolecularDefinition> AND {
+    # molecular type = DNA
+    fhir:moleculeType { fhir:coding { rdf:first { fhir:code { fhir:v ["dna"] } } } },
+    # location: 8001 - 8021
+    fhir:location { rdf:first { fhir:sequenceLocation { fhir:coordinateInterval {
+      fhir:start { fhir:value { fhir:v MaxInclusive "8001"^^xsd:decimal } },
+      fhir:end { fhir:value { fhir:v MinInclusive "8005"^^xsd:decimal } }
+    } } } }
+  },
+  cds:do @<cdsAction>
+}
+
+<cdsAction> {
+    cds:order xsd:string
+  | cds:print xsd:string
+}
+
+<#MolecularDefinition> CLOSED {
+  a [fhir:MolecularDefinition] ;
+  fhir:nodeRole [fhir:treeRoot] ;
+  fhir:id { fhir:v xsd:string } ; # "example-allelesliced1"
+  fhir:moleculeType { fhir:coding @<#OneOrMore_MolecularTypeCoding> } ;
+  fhir:location @<#OneOrMore_Location> ; # 
+  fhir:representation @<#OneOrMore_Representation> #
+}
+
+<#OneOrMore_MolecularTypeCoding> CLOSED {
+  rdf:first @<#MolecularTypeCoding> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_MolecularTypeCoding>
+}
+
+<#MolecularTypeCoding> CLOSED {
+  fhir:system { fhir:v xsd:anyURI } ; # "http://hl7.org/fhir/sequence-type"
+  fhir:code { fhir:v xsd:string } ; # "dna"
+  fhir:display { fhir:v xsd:string } # "DNA Sequence"
+}
+
+<#OneOrMore_Location> CLOSED {
+  rdf:first @<#Location> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_Location>
+}
+
+<#Location> CLOSED {
+  fhir:sequenceLocation CLOSED {
+    fhir:sequenceContext CLOSED {
+      fhir:link IRI ; # <http://hl7.org/fhir/MolecularDefinition/example-sequence-lrg584>
+      fhir:reference { fhir:v xsd:string } ; # "MolecularDefinition/example-sequence-lrg584"
+      fhir:type { fhir:v xsd:anyURI } ; # "MolecularDefinition"
+      fhir:display { fhir:v xsd:string } # "Starting Sequence Resource: LRG_584"
+    } ;
+    fhir:coordinateInterval CLOSED {
+      fhir:coordinateSystem CLOSED {
+        fhir:system CLOSED {
+          fhir:coding @<#OneOrMore_LocationIntervalCoordinateSystemCoding> ;
+          fhir:text { fhir:v xsd:string } # "0-based interval counting"
+        }
+      } ;
+      fhir:start CLOSED {
+        a [fhir:Quantity] ;
+        fhir:value { fhir:v xsd:decimal } # "5001"
+      } ;
+      fhir:end CLOSED {
+        a [fhir:Quantity] ;
+        fhir:value { fhir:v xsd:decimal } # "97867"
+      }
+    }
+  }
+}
+
+<#OneOrMore_LocationIntervalCoordinateSystemCoding> CLOSED {
+  rdf:first @<#LocationIntervalCoordinateSystemCoding> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_LocationIntervalCoordinateSystemCoding>
+}
+
+<#LocationIntervalCoordinateSystemCoding> CLOSED {
+  a [loinc:~] ; # LA30100-4
+  fhir:system { fhir:v xsd:anyURI %Map:{ metab:locCoordSystemSystem %} } ; # "http://loinc.org"
+  fhir:code { fhir:v xsd:string %Map:{ metab:locCoordSystemCode %} } ; # "LA30100-4"
+  fhir:display { fhir:v xsd:string %Map:{ metab:locCoordSystemDisp %} } # "0-based interval counting"
+}
+
+<#OneOrMore_Representation> CLOSED {
+  rdf:first @<#Representation> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_Representation>
+}
+
+<#Representation> CLOSED {
+  fhir:focus CLOSED {
+    fhir:coding @<#OneOrMore_RepresentationFocusCoding>
+  } ;
+  fhir:resolvable CLOSED {
+    fhir:link IRI ; # <http://hl7.org/fhir/DocumentReference/example-genomicFile-ng0083843>
+    fhir:reference { fhir:v xsd:string } # "DocumentReference/example-genomicFile-ng0083843"
+  } ? ;
+  fhir:relative CLOSED {
+    fhir:startingMolecule CLOSED {
+      fhir:link IRI ; # <http://hl7.org/fhir/MolecularDefinition/example-sequence-lrg584>
+      fhir:reference { fhir:v xsd:string } ; # "MolecularDefinition/example-sequence-lrg584"
+      fhir:type { fhir:v xsd:anyURI } ; # "MolecularDefinition"
+      fhir:display { fhir:v xsd:string } # "Starting Sequence Resource: LRG_584"
+    } ;
+    fhir:edit @<#OneOrMore_RelativeEdit>
+  } ?
+}
+
+<#OneOrMore_RepresentationFocusCoding> CLOSED {
+  rdf:first @<#RepresentationFocusCoding> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_RepresentationFocusCoding>
+}
+
+<#RepresentationFocusCoding> CLOSED {
+  fhir:code { fhir:v xsd:string } ; # "allele-state", "context-state"
+  fhir:display { fhir:v xsd:string } # "Allele State", "Context State"
+}
+
+<#OneOrMore_RelativeEdit> CLOSED {
+  rdf:first @<#RelativeEdit> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_RelativeEdit>
+}
+
+<#RelativeEdit> CLOSED {
+  fhir:coordinateInterval CLOSED {
+    fhir:coordinateSystem CLOSED {
+      fhir:system CLOSED {
+        fhir:coding @<#OneOrMore_RelativeEditIntervalCoordinateSystemCoding> ;
+        fhir:text { fhir:v xsd:string } # "0-based interval counting"
+      }
+    }
+  } ;
+  fhir:replacementMolecule CLOSED {
+    fhir:link IRI ; # <http://hl7.org/fhir/MolecularDefinition/example-sequence-t>
+    fhir:reference { fhir:v xsd:string } ; # "MolecularDefinition/example-sequence-t"
+    fhir:type { fhir:v xsd:anyURI } ; # "MolecularDefinition"
+    fhir:display { fhir:v xsd:string } # "Replacement Sequence Resource: T"
+  } ;
+  fhir:replacedMolecule CLOSED {
+    fhir:link IRI ; # <http://hl7.org/fhir/MolecularDefinition/example-sequence-c>
+    fhir:reference { fhir:v xsd:string } ; # "MolecularDefinition/example-sequence-c"
+    fhir:type { fhir:v xsd:anyURI } ; # "MolecularDefinition"
+    fhir:display { fhir:v xsd:string } # "Replaced Sequence Resource: C"
+  }
+}
+
+<#OneOrMore_RelativeEditIntervalCoordinateSystemCoding> CLOSED {
+  rdf:first @<#RelativeEditIntervalCoordinateSystemCoding> ;
+  rdf:rest [rdf:nil] OR @<#OneOrMore_RelativeEditIntervalCoordinateSystemCoding>
+}
+
+<#RelativeEditIntervalCoordinateSystemCoding> CLOSED {
+  a [loinc:~] ; # LA30100-4
+  fhir:system { fhir:v xsd:anyURI } ; # "http://loinc.org"
+  fhir:code { fhir:v xsd:string } ; # "LA30100-4"
+  fhir:display { fhir:v xsd:string } # "0-based interval counting"
+}

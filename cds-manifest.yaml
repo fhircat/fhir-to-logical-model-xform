@@ -1,0 +1,10 @@
+---
+
+- schemaLabel: MolecularDefinition CLOSED
+  schemaURL: MolecularDefinition+cds-Skibbidy1.shex
+  dataLabel: moldef allelesliced1
+  dataURL: moleculardefinition-example-allelesliced1+cds-Skibbidy1.ttl
+  queryMap: |-
+    {FOCUS a cds:Rule}@cds:Skibbidy1-Rule,
+    fhir:MolecularDefinition\/example-allelesliced1@<#MolecularDefinition>
+  status: conformant

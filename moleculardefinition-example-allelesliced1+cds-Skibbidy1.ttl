@@ -1,0 +1,124 @@
+PREFIX cds: <http://cds.example.org/>
+PREFIX emr1: <http://emrs.example.org/1/>
+
+prefix fhir: <http://hl7.org/fhir/>
+prefix loinc: <https://loinc.org/rdf/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# - resource -------------------------------------------------------------------
+
+cds:Skibbidy1-test
+  a cds:Rule ;
+  cds:when <http://hl7.org/fhir/MolecularDefinition/example-allelesliced1> ;
+  cds:do [
+    cds:print "Check for skibbidy-hop disease."
+  ] .
+
+<http://hl7.org/fhir/MolecularDefinition/example-allelesliced1> a fhir:MolecularDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example-allelesliced1"] ; # 
+  fhir:moleculeType [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://hl7.org/fhir/sequence-type"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "dna" ] ;
+       fhir:display [ fhir:v "DNA Sequence" ]
+     ] )
+  ] ; # 
+  fhir:location ( [
+     fhir:sequenceLocation [
+       fhir:sequenceContext [
+         fhir:link <http://hl7.org/fhir/MolecularDefinition/example-sequence-lrg584> ;
+         fhir:reference [ fhir:v "MolecularDefinition/example-sequence-lrg584" ] ;
+         fhir:type [ fhir:v "MolecularDefinition"^^xsd:anyURI ] ;
+         fhir:display [ fhir:v "Starting Sequence Resource: LRG_584" ]
+       ] ;
+       fhir:coordinateInterval [
+         fhir:coordinateSystem [
+           fhir:system [
+             fhir:coding ( [
+               a loinc:LA30100-4 ;
+               fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+               fhir:code [ fhir:v "LA30100-4" ] ;
+               fhir:display [ fhir:v "0-based interval counting" ]
+             ] ) ;
+             fhir:text [ fhir:v "0-based interval counting" ]
+           ]
+         ] ;
+         fhir:start [
+           a fhir:Quantity ;
+           fhir:value [ fhir:v "5001"^^xsd:decimal ]
+         ] ;
+         fhir:end [
+           a fhir:Quantity ;
+           fhir:value [ fhir:v "97867"^^xsd:decimal ]
+         ]
+       ]
+     ]
+  ] ) ; # 
+  fhir:representation ( [
+     fhir:focus [
+       fhir:coding ( [
+         fhir:code [ fhir:v "allele-state" ] ;
+         fhir:display [ fhir:v "Allele State" ]
+       ] )
+     ] ;
+     fhir:resolvable [
+       fhir:link <http://hl7.org/fhir/DocumentReference/example-genomicFile-ng0083843> ;
+       fhir:reference [ fhir:v "DocumentReference/example-genomicFile-ng0083843" ]
+     ]
+  ] [
+     fhir:focus [
+       fhir:coding ( [
+         fhir:code [ fhir:v "context-state" ] ;
+         fhir:display [ fhir:v "Context State" ]
+       ] )
+     ] ;
+     fhir:relative [
+       fhir:startingMolecule [
+         fhir:link <http://hl7.org/fhir/MolecularDefinition/example-sequence-lrg584> ;
+         fhir:reference [ fhir:v "MolecularDefinition/example-sequence-lrg584" ] ;
+         fhir:type [ fhir:v "MolecularDefinition"^^xsd:anyURI ] ;
+         fhir:display [ fhir:v "Starting Sequence Resource: LRG_584" ]
+       ] ;
+       fhir:edit ( [
+         fhir:coordinateInterval [
+           fhir:coordinateSystem [
+             fhir:system [
+               fhir:coding ( [
+                 a loinc:LA30100-4 ;
+                 fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+                 fhir:code [ fhir:v "LA30100-4" ] ;
+                 fhir:display [ fhir:v "0-based interval counting" ]
+               ] ) ;
+               fhir:text [ fhir:v "0-based interval counting" ]
+             ]
+           ]
+         ] ;
+         fhir:replacementMolecule [
+           fhir:link <http://hl7.org/fhir/MolecularDefinition/example-sequence-t> ;
+           fhir:reference [ fhir:v "MolecularDefinition/example-sequence-t" ] ;
+           fhir:type [ fhir:v "MolecularDefinition"^^xsd:anyURI ] ;
+           fhir:display [ fhir:v "Replacement Sequence Resource: T" ]
+         ] ;
+         fhir:replacedMolecule [
+           fhir:link <http://hl7.org/fhir/MolecularDefinition/example-sequence-c> ;
+           fhir:reference [ fhir:v "MolecularDefinition/example-sequence-c" ] ;
+           fhir:type [ fhir:v "MolecularDefinition"^^xsd:anyURI ] ;
+           fhir:display [ fhir:v "Replaced Sequence Resource: C" ]
+         ]
+       ] )
+     ]
+  ] ) . # 
+
+<http://hl7.org/fhir/MolecularDefinition/example-sequence-lrg584> a fhir:MolecularDefinition .
+
+<http://hl7.org/fhir/DocumentReference/example-genomicFile-ng0083843> a fhir:DocumentReference .
+
+<http://hl7.org/fhir/MolecularDefinition/example-sequence-t> a fhir:MolecularDefinition .
+
+<http://hl7.org/fhir/MolecularDefinition/example-sequence-c> a fhir:MolecularDefinition .
+
+# -------------------------------------------------------------------------------------
